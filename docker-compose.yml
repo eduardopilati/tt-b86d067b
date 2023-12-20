@@ -1,0 +1,51 @@
+
+services:
+    e4d6768c_laravel:
+        image: e4d6768c_laravel
+        container_name: e4d6768c_laravel
+        build: .
+        volumes:
+            - ./:/app
+        restart: unless-stopped
+        entrypoint: './entrypoint.sh'
+        ports:
+            - 10234:8000
+        expose:
+            - 10234
+        links:
+            - e4d6768c_mysql
+        depends_on:
+            - e4d6768c_mysql
+        deploy:
+            resources:
+                limits:
+                    memory: 200M
+    e4d6768c_queue:
+        image: e4d6768c_laravel
+        container_name: e4d6768c_queue
+        build: .
+        volumes:
+            - ./:/app
+        restart: unless-stopped
+        entrypoint: './entrypoint_queue.sh'
+        links:
+            - e4d6768c_mysql
+        depends_on:
+            - e4d6768c_mysql
+        deploy:
+            resources:
+                limits:
+                    memory: 200M
+    e4d6768c_mysql:
+        container_name: e4d6768c_mysql
+        image: mysql:8
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: NvECeRX9qop5xfDcG
+        volumes:
+            - ./docker_data/mysql_data:/var/lib/mysql:rw
+            - ./docker_data/mysql_entrypoint:/docker-entrypoint-initdb.d:ro
+        deploy:
+            resources:
+                limits:
+                    memory: 600M

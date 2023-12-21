@@ -11,7 +11,12 @@ import Logo from '@/Components/App/Logo.vue'
             </Link>
             <ul class="navbar-nav flex-row">
                 <li class="nav-item">
-                    <Link class="nav-link" :href="route('logout')" method="post">
+                    <Link class="nav-link" :href="route('users.index')">
+                        Usuários
+                    </Link>
+                </li>
+                <li class="nav-item">
+                    <Link class="nav-link" :href="route('logout')" method="post" as="button">
                         Sair
                     </Link>
                 </li>

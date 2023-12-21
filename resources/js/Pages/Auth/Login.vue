@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head, useForm, Link } from '@inertiajs/vue3'
+import { Head, useForm } from '@inertiajs/vue3'
 import GuestLayout from '@/Layouts/GuestLayout.vue'
 import Checkbox from '@/Components/Forms/Checkbox.vue'
 import InputError from '@/Components/Forms/InputError.vue'
@@ -13,7 +13,7 @@ defineProps({
 })
 
 const form = useForm({
-    email: '',
+    document: '',
     password: '',
     remember: false,
 })
@@ -36,15 +36,15 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div class="mb-3">
                 <InputText
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    label="E-mail"
+                    id="document"
+                    v-model="form.document"
+                    type="text"
+                    label="CPF"
                     required
                     autofocus
                     autocomplete="username" />
 
-                <InputError class="mt-2" :message="form.errors.email" />
+                <InputError class="mt-2" :message="form.errors.document" />
             </div>
 
             <div class="mb-3">
@@ -66,9 +66,6 @@ const submit = () => {
                 <SubmitButton :disabled="form.processing">
                     Entrar
                 </SubmitButton>
-                <Link href="/register" class="btn btn-link">
-                    Registrar
-                </Link>
             </div>
         </form>
     </GuestLayout>

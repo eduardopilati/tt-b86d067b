@@ -3,7 +3,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
+use App\Classes\PaginationUrlWindow;
+use Illuminate\Pagination\UrlWindow;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $aliasLoader = AliasLoader::getInstance();
+        $aliasLoader->alias(UrlWindow::class, PaginationUrlWindow::class);
     }
 
     /**

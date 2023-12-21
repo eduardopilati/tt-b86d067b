@@ -1,15 +1,17 @@
-<script setup>
-import { Head, Link } from '@inertiajs/vue3';
-import Logo from '@/Components/App/Logo.vue';
+<script setup lang="ts">
+import { Head, Link } from '@inertiajs/vue3'
+import Logo from '@/Components/App/Logo.vue'
 
 </script>
 
 <template>
-    <Head title="Welcome" />
     <div class="landingPage">
+        <Head title="Welcome" />
         <Logo />
         <h1>Há 59 anos te levando aos seus sonhos</h1>
-        <Link href="/login" class="btn btn-primary">Quero alugar um Carro!</Link>
+        <Link href="/login" class="btn btn-primary">
+            Quero alugar um Carro!
+        </Link>
     </div>
 </template>
 

@@ -1,22 +1,22 @@
-<script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/Forms/InputError.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
-import InputText from '../../Components/Forms/InputText.vue';
-import SubmitButton from '../../Components/Forms/SubmitButton.vue';
+<script setup lang="ts">
+import { Head, Link, useForm } from '@inertiajs/vue3'
+import GuestLayout from '@/Layouts/GuestLayout.vue'
+import InputError from '@/Components/Forms/InputError.vue'
+import InputText from '../../Components/Forms/InputText.vue'
+import SubmitButton from '../../Components/Forms/SubmitButton.vue'
 
 const form = useForm({
     name: '',
     email: '',
     password: '',
     password_confirmation: '',
-});
+})
 
 const submit = () => {
     form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
-    });
-};
+    })
+}
 </script>
 
 <template>
@@ -25,16 +25,14 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div class="mb-3">
-
                 <InputText
                     id="name"
+                    v-model="form.name"
                     type="text"
                     label="Nome"
-                    v-model="form.name"
                     required
                     autofocus
-                    autocomplete="name"
-                />
+                    autocomplete="name" />
 
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
@@ -42,12 +40,11 @@ const submit = () => {
             <div class="mb-3">
                 <InputText
                     id="email"
+                    v-model="form.email"
                     type="email"
                     label="E-mail"
-                    v-model="form.email"
                     required
-                    autocomplete="username"
-                />
+                    autocomplete="username" />
 
                 <InputError :message="form.errors.email" />
             </div>
@@ -55,12 +52,11 @@ const submit = () => {
             <div class="mb-3">
                 <InputText
                     id="password"
+                    v-model="form.password"
                     type="password"
                     label="Senha"
-                    v-model="form.password"
                     required
-                    autocomplete="new-password"
-                />
+                    autocomplete="new-password" />
 
                 <InputError :message="form.errors.password" />
             </div>
@@ -68,12 +64,11 @@ const submit = () => {
             <div class="mb-3">
                 <InputText
                     id="password_confirmation"
+                    v-model="form.password_confirmation"
                     type="password"
                     label="Confirmar Senha"
-                    v-model="form.password_confirmation"
                     required
-                    autocomplete="new-password"
-                />
+                    autocomplete="new-password" />
 
                 <InputError :message="form.errors.password_confirmation" />
             </div>

@@ -1,12 +1,14 @@
-import './bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+/* eslint-disable vue/component-api-style */
 
-import { createApp, h } from 'vue';
-import { createInertiaApp } from '@inertiajs/vue3';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
+import './bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
+
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -15,9 +17,9 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
-            .mount(el);
+            .mount(el)
     },
     progress: {
         color: '#4B5563',
     },
-});
+})

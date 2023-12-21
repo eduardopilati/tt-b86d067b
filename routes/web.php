@@ -1,4 +1,5 @@
 <?php
+// phpcs:ignoreFile
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;

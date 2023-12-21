@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
     message: {
         type: String,
         required: false,
     },
-});
+})
 </script>
 
 <template>

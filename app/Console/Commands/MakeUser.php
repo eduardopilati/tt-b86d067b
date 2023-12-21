@@ -2,28 +2,25 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class MakeUser extends Command
 {
     /**
      * The name and signature of the console command.
-     *
-     * @var string
      */
-    protected $signature = 'make:user';
+    protected string $signature = 'make:user';
 
     /**
      * The console command description.
-     *
-     * @var string
      */
-    protected $description = 'Command description';
+    protected string $description = 'Command description';
 
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         $name = $this->ask('What is user name?');
         $document = $this->ask('What is user document?');
@@ -32,7 +29,7 @@ class MakeUser extends Command
         $admin = $this->confirm('Is the user an administrator?');
 
 
-        $user = new \App\Models\User();
+        $user = new User();
         $user->name = $name;
         $user->document = $document;
         $user->email = $email;

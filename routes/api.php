@@ -1,4 +1,5 @@
 <?php
+// phpcs:ignoreFile
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

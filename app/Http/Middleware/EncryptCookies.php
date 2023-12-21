@@ -1,4 +1,5 @@
 <?php
+// phpcs:ignoreFile
 
 namespace App\Http\Middleware;
 
@@ -11,7 +12,5 @@ class EncryptCookies extends Middleware
      *
      * @var array<int, string>
      */
-    protected $except = [
-        //
-    ];
+    protected $except = [];
 }

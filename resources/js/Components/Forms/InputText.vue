@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 defineOptions({
-  inheritAttrs: false
+    inheritAttrs: false,
 })
 
 const props = defineProps({
@@ -31,14 +31,15 @@ const emit = defineEmits(['update:modelValue'])
 </script>
 
 <template>
-    <label :for="name ?? id" class="form-label">{{ label }}</label>
-    <input
-        :id="name ?? id"
-        :name="name"
-        :value="modelValue"
-        :type="type"
-        @input="emit('update:modelValue', $event.target.value)"
-        class="form-control"
-        v-bind="$attrs"
-    >
+    <div>
+        <label :for="name ?? id" class="form-label">{{ label }}</label>
+        <input
+            :id="name ?? id"
+            :name="name"
+            :value="modelValue"
+            :type="type"
+            class="form-control"
+            v-bind="$attrs"
+            @input="emit('update:modelValue', $event.target.value)">
+    </div>
 </template>

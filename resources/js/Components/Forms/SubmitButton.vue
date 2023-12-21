@@ -1,7 +1,7 @@
-<script setup>
+<script setup lang="ts">
 
 defineOptions({
-  inheritAttrs: false
+    inheritAttrs: false,
 })
 
 </script>
@@ -10,8 +10,7 @@ defineOptions({
     <button
         type="submit"
         class="btn btn-primary"
-        v-bind="$attrs"
-    >
+        v-bind="$attrs">
         <slot />
     </button>
 </template>

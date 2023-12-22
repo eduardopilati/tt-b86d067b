@@ -1,3 +1,14 @@
+# Build front end
+FROM node:18-alpine as node-build
+
+WORKDIR /app
+
+COPY . ./
+
+RUN npm install  && \
+    npm run build
+
+# Runner
 FROM php:8.2
 
 WORKDIR /app
@@ -9,6 +20,14 @@ RUN apt update && \
     docker-php-ext-configure zip && \
     docker-php-ext-install bcmath gd pdo_mysql zip && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY . ./
+COPY --from=node-build /app/public/build public/build
+
+RUN composer install --optimize-autoloader
+RUN chmod +x entrypoint.sh
+RUN chmod +x entrypoint_queue.sh
+RUN chmod -R 755 public/build
 
 EXPOSE 8000
 EXPOSE 9003

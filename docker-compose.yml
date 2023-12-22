@@ -5,7 +5,7 @@ services:
         container_name: e4d6768c_laravel
         build: .
         volumes:
-            - ./:/app
+            - ./storage:/app/storage
         restart: unless-stopped
         entrypoint: './entrypoint.sh'
         ports:

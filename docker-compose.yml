@@ -13,6 +13,8 @@ services:
             resources:
                 limits:
                     memory: 600M
+        networks:
+            - e4d6768c
         healthcheck:
             test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
             timeout: 1s

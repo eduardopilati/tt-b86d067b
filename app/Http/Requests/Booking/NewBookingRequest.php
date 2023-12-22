@@ -15,10 +15,10 @@ class NewBookingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'car_id' => 'required|exists:cars,id',
-            'user_id' => 'required|exists:users,id',
-            'start_date' => 'required|date|after_or_equal:today',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'car_id' => 'bail|required|exists:cars,id',
+            'user_id' => 'bail|required|exists:users,id',
+            'start_date' => 'bail|required|date|after_or_equal:today',
+            'end_date' => 'bail|required|date|after_or_equal:start_date',
         ];
     }
 

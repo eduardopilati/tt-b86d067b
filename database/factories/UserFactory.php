@@ -8,21 +8,16 @@ use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
+    public const PASSWORD = 'Aa123456';
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected static ?string $hashedPassword;
+
     public function definition(): array
     {
         return [
             'name' => fake()->name(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$hashedPassword ??= Hash::make(static::PASSWORD),
+            'document' => fake()->cpf(false),
             'remember_token' => Str::random(10),
         ];
     }

@@ -27,8 +27,10 @@ class LoginRequest extends FormRequest
     {
         return [
             'document' => [
+                'bail',
                 'required',
                 'string',
+                'digits:11',
                 new CPF(),
             ],
             'password' => [

@@ -24,7 +24,7 @@ class CreateUserRequest extends FormRequest
             ],
             'document' => [
                 'bail',
-                'nullable',
+                'required',
                 'digits:11',
                 new CPF(),
                 Rule::unique('users'),
@@ -35,5 +35,12 @@ class CreateUserRequest extends FormRequest
                 Password::min(8)->mixedCase()->numbers(),
             ],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'document' => preg_replace('/\D/', '', $this->document),
+        ]);
     }
 }

@@ -18,7 +18,7 @@ RUN . ~/.bashrc && nvm install 18
 COPY . ./
 
 RUN composer install
-RUN . ~/.bashrc && npm install
+RUN . ~/.bashrc && npm install && npm run build
 
 # Runner
 FROM php:8.2

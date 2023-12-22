@@ -37,7 +37,9 @@ const props = defineProps({
                             <td>{{ car.plate }}</td>
                             <td>{{ car.year }}</td>
                             <td>
-                                <Link :href="route('cars.edit', car.id)" class="btn btn-sm btn-secondary">Editar</Link>
+                                <Link :href="route('cars.edit', car.id)" class="btn btn-sm btn-secondary">
+                                    Editar
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

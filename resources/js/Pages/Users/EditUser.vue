@@ -3,7 +3,6 @@ import { Link, useForm } from '@inertiajs/vue3'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 import InputError from '@/Components/Forms/InputError.vue'
 import InputText from '../../Components/Forms/InputText.vue'
-import Checkbox from '@/Components/Forms/Checkbox.vue'
 
 const props = defineProps({
     user: {

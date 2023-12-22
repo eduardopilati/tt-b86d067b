@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
     bookings: {
         type: Object,
@@ -18,7 +18,9 @@ const props = defineProps({
 <template>
     <div class="m-5">
         <div>
-            <h1 class="text-center d-block mb-2">Reservas</h1>
+            <h1 class="text-center d-block mb-2">
+                Reservas
+            </h1>
             <span v-if="user" class="d-block mb-2">Usuário: {{ user?.name }}</span>
             <span v-if="car" class="d-block mb-2">Carro: {{ car?.plate }}</span>
         </div>

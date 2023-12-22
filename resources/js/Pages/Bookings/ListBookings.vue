@@ -49,7 +49,9 @@ const props = defineProps({
                             <td>{{ new Date(booking.start_date).toLocaleDateString('br', { timeZone: 'UTC' }) }}</td>
                             <td>{{ new Date(booking.end_date).toLocaleDateString('br', { timeZone: 'UTC' }) }}</td>
                             <td>
-                                <Link :href="route('bookings.destroy', booking.id)" class="btn btn-sm btn-secondary" method="delete" as="button">Remover</Link>
+                                <Link :href="route('bookings.destroy', booking.id)" class="btn btn-sm btn-secondary" method="delete" as="button">
+                                    Remover
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

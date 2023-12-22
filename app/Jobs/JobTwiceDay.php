@@ -17,7 +17,7 @@ class JobTwiceDay implements ShouldQueue
      */
     public function __construct()
     {
-        //
+        // Empty
     }
 
     /**
@@ -25,6 +25,6 @@ class JobTwiceDay implements ShouldQueue
      */
     public function handle(): void
     {
-        //
+        // Empty
     }
 }

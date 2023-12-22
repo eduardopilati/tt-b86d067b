@@ -40,12 +40,12 @@ jobs:
       - name: Run Eslint
         run: npm run eslint
 
-      - name: Run Build
-        run: npm run build
-
       - name: Install composer dependencies
         run: |
           composer install --no-scripts --optimize-autoloader
+
+      - name: Run Build
+        run: npm run build
 
       - name: Run PHP Code Sniffer
         run: |

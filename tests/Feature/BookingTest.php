@@ -54,8 +54,7 @@ class BookingTest extends TestCase
             ->has('bookings.data.0.user')
             ->where('bookings.data.0.user.id', $user->id)
             ->has('bookings.data.0.car')
-            ->where('bookings.data.0.car.id', $car->id)
-        );
+            ->where('bookings.data.0.car.id', $car->id));
     }
 
     public function testCanAccessBookingScreenUserFiltered(): void

@@ -24,6 +24,8 @@ Para executar o projeto é necessário apenas executar o comando:
 sudo docker compose up -d
 ```
 
+O projeto está executando na porta `10234`
+
 Para criar o primeiro usuário será necessário executar o comando:
 
 ```bash

@@ -4,7 +4,7 @@ import Logo from '@/Components/App/Logo.vue'
 </script>
 
 <template>
-    <nav class="navbar fixed-top bg-body-tertiary">
+    <nav class="navbar fixed-top bg-body-tertiary px-4">
         <div class="d-flex">
             <Link class="navbar-brand" :href="route('dashboard')">
                 <Logo />
@@ -13,6 +13,16 @@ import Logo from '@/Components/App/Logo.vue'
                 <li class="nav-item">
                     <Link class="nav-link" :href="route('users.index')">
                         Usuários
+                    </Link>
+                </li>
+                <li class="nav-item">
+                    <Link class="nav-link" :href="route('cars.index')">
+                        Carros
+                    </Link>
+                </li>
+                <li class="nav-item">
+                    <Link class="nav-link" :href="route('bookings.index')">
+                        Reservas
                     </Link>
                 </li>
                 <li class="nav-item">

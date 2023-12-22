@@ -33,10 +33,6 @@ class UpdateUserRequest extends FormRequest
                 'string',
                 Password::min(8)->mixedCase()->numbers(),
             ],
-            'admin' => [
-                'nullable',
-                'boolean',
-            ],
         ];
     }
 }

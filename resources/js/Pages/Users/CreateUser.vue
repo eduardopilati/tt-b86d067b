@@ -9,7 +9,6 @@ const form = useForm({
     name: '',
     document: '',
     password: '',
-    admin: false,
 })
 
 function submit() {
@@ -62,8 +61,6 @@ function submit() {
 
                         <InputError class="mt-2" :message="form.errors.password" />
                     </div>
-
-                    <Checkbox id="admin" v-model="form.admin" label="Administrador" />
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary" :disabled="form.processing">

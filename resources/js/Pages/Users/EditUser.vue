@@ -16,7 +16,6 @@ const form = useForm({
     name: props.user.name,
     document: props.user.document,
     password: '',
-    admin: props.user.admin,
 })
 
 function submit() {
@@ -69,8 +68,6 @@ function submit() {
 
                         <InputError class="mt-2" :message="form.errors.password" />
                     </div>
-
-                    <Checkbox id="admin" v-model="form.admin" label="Administrador" />
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary" :disabled="form.processing">
@@ -78,6 +75,9 @@ function submit() {
                     </button>
                     <Link :href="route('users.destroy', user.id)" class="btn btn-danger ms-3" method="delete">
                         Excluir Usuário
+                    </Link>
+                    <Link :href="route('bookings.index', { user: user.id })" class="btn btn-secondary ms-3">
+                        Ver Reservas
                     </Link>
                 </div>
             </div>

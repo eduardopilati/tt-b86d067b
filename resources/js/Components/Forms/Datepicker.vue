@@ -5,8 +5,8 @@ defineOptions({
 
 const props = defineProps({
     modelValue: {
-        type: null,
-        required: true,
+        type: String,
+        required: false,
     },
     label: {
         type: String,
@@ -20,11 +20,6 @@ const props = defineProps({
         type: String,
         required: false,
     },
-    type: {
-        type: String,
-        required: false,
-        default: 'text',
-    },
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -37,7 +32,7 @@ const emit = defineEmits(['update:modelValue'])
             :id="name ?? id"
             :name="name"
             :value="modelValue"
-            :type="type"
+            type="date"
             class="form-control"
             v-bind="$attrs"
             @input="emit('update:modelValue', $event.target.value)">

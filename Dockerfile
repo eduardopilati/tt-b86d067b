@@ -1,12 +1,24 @@
 # Build front end
-FROM node:18-alpine as node-build
+FROM php:8.2 as node-build
 
 WORKDIR /app
 
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y ca-certificates cron curl git tar unzip libpng-dev libxml2-dev libzip-dev wget && \
+    apt clean && \
+    docker-php-ext-configure zip && \
+    docker-php-ext-install bcmath gd pdo_mysql zip && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+RUN . ~/.bashrc && nvm install 18
+
 COPY . ./
 
-RUN npm install  && \
-    npm run build
+RUN composer install
+RUN . ~/.bashrc && npm install
 
 # Runner
 FROM php:8.2

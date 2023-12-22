@@ -1,4 +1,5 @@
 /* eslint-disable vue/component-api-style */
+/* eslint-disable import/no-absolute-path */
 
 import './bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'

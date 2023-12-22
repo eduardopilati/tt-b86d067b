@@ -24,7 +24,7 @@ class UpdateUserRequest extends FormRequest
             ],
             'document' => [
                 'bail',
-                'nullable',
+                'required',
                 new CPF(),
                 Rule::unique('users')->ignore($this->route('user')),
             ],
@@ -34,5 +34,12 @@ class UpdateUserRequest extends FormRequest
                 Password::min(8)->mixedCase()->numbers(),
             ],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'document' => preg_replace('/\D/', '', $this->document),
+        ]);
     }
 }

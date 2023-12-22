@@ -35,7 +35,9 @@ const props = defineProps({
                             <td>{{ user.document }}</td>
                             <td>{{ new Date(user.created_at).toLocaleDateString('br', { timeZone: 'UTC' }) }}</td>
                             <td>
-                                <Link :href="route('users.edit', user.id)" class="btn btn-sm btn-secondary">Editar</Link>
+                                <Link :href="route('users.edit', user.id)" class="btn btn-sm btn-secondary">
+                                    Editar
+                                </Link>
                             </td>
                         </tr>
                     </tbody>
